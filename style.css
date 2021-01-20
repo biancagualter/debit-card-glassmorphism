@@ -8,9 +8,6 @@ body {
     overflow: hidden;
     font-family: 'Poppins', sans-serif;
 }
-canvas{ 
-    display: block;
-  }
 
 section {
     display: flex;
@@ -39,7 +36,7 @@ section::after {
     width: 300px;
     height: 300px;
     background: linear-gradient(rgb(250, 102, 4), rgb(238, 6, 161));
-    border-radius: 50%;
+    border-radius: 50%; 
 }
 
 .card {
