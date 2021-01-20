@@ -8,6 +8,9 @@ body {
     overflow: hidden;
     font-family: 'Poppins', sans-serif;
 }
+canvas{ 
+    display: block;
+  }
 
 section {
     display: flex;
@@ -28,12 +31,25 @@ section::before {
     border-radius: 50%;
 }
 
+section::after {
+    content: '';
+    position: absolute;
+    bottom: 55%;
+    left: 25%;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(rgb(250, 102, 4), rgb(238, 6, 161));
+    border-radius: 50%;
+}
+
 .card {
     position: relative;
     width: 508px;
     height: 314px;
     transform-style: preserve-3d;
     perspective: 500px;
+    z-index: 2;
+    
 }
 
 .card .face {
@@ -45,9 +61,28 @@ section::before {
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(28px);
     transform-style: preserve-3d;
     transition: 1s;
+    backface-visibility: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card:hover .face.front {
+    transform: rotateY(180deg);
+    
+}
+
+.card .face.back {
+    transform: rotateY(180deg);
+
+}
+
+.card:hover .face.back {
+    transform: rotateY(360deg);
 }
 
 .card .face.front::before {
@@ -138,4 +173,53 @@ section::before {
     font-weight: 300;
     font-size: 16px;
     letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.card .face.back .blackbar {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    height: 60px;
+    background: #000;
+}
+
+.card .face.back .cvvtext {
+    position: absolute;
+    top: 120px;
+    left: 30px;
+}
+
+.card .face.back .cvvtext .white-bar {
+    position: relative;
+    width: 400px;
+    height: 40px;
+    background: #fff;
+    margin-top: 5px;
+}
+
+.card .face.back .cvvtext .cvv {
+    position: relative;
+    top: -35px;
+    left: 345px;
+    background: #ccc;
+    color: #111;
+    width: 50px;
+    height: 30px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .face.back .text {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    color: #fff;
+    font-size: 10px;
+    line-height: 1. 4em;
+    font-weight: 300;
 }
