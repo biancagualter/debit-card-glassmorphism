@@ -70,12 +70,10 @@ section::after {
 
 .card:hover .face.front {
     transform: rotateY(180deg);
-    
 }
 
 .card .face.back {
     transform: rotateY(180deg);
-
 }
 
 .card:hover .face.back {
